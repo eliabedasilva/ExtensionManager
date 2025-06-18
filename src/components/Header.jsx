@@ -27,7 +27,7 @@ export default function Header({ onFilterChange }) {
       
       <div className={`${styles.filters_container}`}>
         <h1>Extension List</h1>
-        <div className="filters">
+        <div className={`${styles.filters}`}>
           <button 
             className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
             onClick={() => handleFilterClick('all')}

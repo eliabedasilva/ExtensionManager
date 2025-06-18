@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Noto Sans;
 }
 
 :root{
@@ -12,10 +15,11 @@
     --Neutral5: hsl(0, 0%, 78%);
     --Neutral6: hsl(217, 61%, 90%);
     --Neutral7: hsl(0, 0%, 93%);
-    --Neutral8: hsl(200, 60%, 99%);
+    --Neutral8: hsl(0, 0%, 100%);
     --Red1: hsl(3, 86%, 64%);
     --Red2: hsl(3, 71%, 56%);
     --Red3: hsl(3, 77%, 44%);
+    --box_shadow: 0 0 0.3rem rgba(0, 0, 0, 0.2);
 }
 
 .search_container {
@@ -25,14 +29,15 @@
     background-color: var(--Neutral8);
     border-radius: 0.7rem;
     margin-top: 2rem;
+    box-shadow: var(--box_shadow);
     padding-inline: 1rem ;
 }
 .search_container > input {
     width: 100%;
     padding: 1rem 0.5rem;
     border: none;
+    color: var(--Neutral1);
     background-color: var(--Neutral8);
-    color: var(--Neutral8);
     font-size: 1rem;
     font-weight: 500;
     outline: none;
@@ -49,5 +54,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 3rem;
+}
+.filters_container > h1 {
+    color: var(--Neutral1);
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.filters {
+    display: flex;
+    gap: 1rem;
+}
+.filters > button {
+    background-color: var(--Neutral8);
+    border: none;
+    color: var(--Neutral1);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: var(--box_shadow); 
 }
