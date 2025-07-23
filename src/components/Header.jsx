@@ -18,7 +18,7 @@ export default function Header({ onFilterChange }) {
         <img src='assets/images/logo-light.svg' alt="logo" />
         <input type="text" name="search" id="search_input" placeholser="Extensions"/>
         <button className={`${styles.search_btn}`}>
-          <img src='assets/images/icon-moon.svg' alt="icon_moon" />
+          <img src='assets/images/icon-moon.svg' alt="icon_moon"/>
         </button>
       </div>
       

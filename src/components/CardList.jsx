@@ -22,7 +22,6 @@ export default function CardList() {
             } catch (err) {
                 setError(err.message);
                 console.error('Erro ao buscar extensões:', err);
-                // Fallback para dados estáticos em caso de erro
             } finally {
                 setLoading(false);
             }
@@ -54,6 +53,7 @@ export default function CardList() {
             {extensions.map((extension) => (
                 <ExtensionCard 
                     key={extension.id || extension.name}
+                    id={extension.id}
                     logo_path={extension.logo}
                     name={extension.name}
                     description={extension.description}
