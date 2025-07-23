@@ -1,13 +1,12 @@
 import styles from '../components/ExtensionCard.module.css';
-import Logo from "../assets/images/logo-console-plus.svg?react";
 
-export default function ExtensionCard(){
+export default function ExtensionCard({logo_path, name, description, isActive}){
     return (
         <div className={`${styles.card}`}>
-            <Logo className={`${styles.logo}`}/>
+            <img src={logo_path} alt={name} />
             <div className={`${styles.text_container}`}>
-                <h1>Title</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, error.</p>
+                <h1>{name}</h1>
+                <p>{description}</p>
             </div>
             <div className={`${styles.button_container}`}>
                 <button>Remove</button>

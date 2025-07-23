@@ -1,7 +1,4 @@
 import { useState } from 'react';
-import  Logo from "../assets/images/logo-light.svg?react";
-import IconSun from "../assets/images/icon-sun.svg?react";
-import IconMoon from "../assets/images/icon-moon.svg?react";
 import styles from '../components/Header.module.css';
 
 export default function Header({ onFilterChange }) {
@@ -18,10 +15,10 @@ export default function Header({ onFilterChange }) {
   return (
     <header>
       <div className={`${styles.search_container}`}>
-        <Logo />
+        <img src='assets/images/logo-light.svg' alt="logo" />
         <input type="text" name="search" id="search_input" placeholser="Extensions"/>
         <button className={`${styles.search_btn}`}>
-          <IconMoon/>
+          <img src='assets/images/icon-moon.svg' alt="icon_moon" />
         </button>
       </div>
       
