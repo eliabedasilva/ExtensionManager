@@ -22,24 +22,18 @@ function App() {
   }
 
   const onFilterChange = (filter) => {
-    if (filter === 'all'){
-      setFiltedExtensions(extensions)
-    } else {
-      if (filter === 'active'){
-        setFiltedExtensions(
-          extensions.filter(extension => extension.isActive)
-        )
-        
-      } else {
-          if (filter === 'inactive'){
-            setFiltedExtensions(
-              extensions.filter(extension => !extension.isActive)
-            )
-          }
-      }
+    if (filter === 'all') {
+      setFiltedExtensions(extensions);
+    } else if (filter === 'active') {
+      setFiltedExtensions(
+        extensions.filter(extension => extension.isActive)
+      );
+    } else if (filter === 'inactive') {
+      setFiltedExtensions(
+        extensions.filter(extension => !extension.isActive)
+      );
     }
-    setExtensions(filtedExtensions)
-  }
+  };
 
   useEffect(() => {
       const fetchExtensions = async () => {
