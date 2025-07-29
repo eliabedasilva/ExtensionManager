@@ -1,36 +1,10 @@
-import { useState, useEffect } from "react";
+
 import ExtensionCard from "./ExtensionCard";
 import styles from "./CardList.module.css"
 
-export default function CardList() {
-    const [extensions, setExtensions] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+export default function CardList({extensions, loading, error}) {
 
-    useEffect(() => {
-        const fetchExtensions = async () => {
-            try {
-                setLoading(true);
-                const response = await fetch('http://localhost:3001/extensions'); 
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                setExtensions(data);
-            } catch (err) {
-                setError(err.message);
-                console.error('Erro ao buscar extensões:', err);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchExtensions();
-    }, []);
-
-    if (loading) {
+  if (loading) {
         return (
             <div className={styles.card_list}>
                 <div className={styles.loading}>Loading...</div>
@@ -47,7 +21,7 @@ export default function CardList() {
             </div>
         );
     }
-
+        
     return (
         <div className={styles.card_list}>
             {extensions.map((extension) => (
