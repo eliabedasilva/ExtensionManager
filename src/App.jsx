@@ -68,6 +68,7 @@ function App() {
       />
       <CardList
         extensions={filtedExtensions}
+        setExtensions={setExtensions}
         loading={loading}
         error={error}
       />

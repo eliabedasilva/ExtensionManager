@@ -1,8 +1,27 @@
 import { useState } from 'react';
 import styles from '../components/ExtensionCard.module.css';
+import ConfirmModal from './ConfirmModal';
 
 export default function ExtensionCard({ id, logo_path, name, description, isActive }) {
     const [isChecked, setIsChecked] = useState(isActive);
+    const [showModal, setShowModal] = useState(false);
+
+    const onRemove = async (id) => {
+        try {
+          await fetch(`http://localhost:3001/extensions/${id}`, {
+            method: 'DELETE',
+          });
+    
+        } catch (error) {
+          console.error("Erro ao remover:", error);
+        }
+      };
+
+    const handleRemoveClick = () => setShowModal(true);
+    const handleConfirm = () => {
+        onRemove(id);
+        setShowModal(false);
+    };
 
     const handleCheckboxChange = async () => {
         const newValue = !isChecked;
@@ -37,7 +56,7 @@ export default function ExtensionCard({ id, logo_path, name, description, isActi
                 <p>{description}</p>
             </div>
             <div className={styles.button_container}>
-                <button>Remove</button>
+                <button onClick={handleRemoveClick}>Remove</button>
                 <label className={styles.toggleSwitch}>
                     <input
                         type="checkbox"
@@ -47,6 +66,13 @@ export default function ExtensionCard({ id, logo_path, name, description, isActi
                     <span className={styles.slider}></span>
                 </label>
             </div>
+
+            <ConfirmModal
+                isOpen={showModal}
+                onClose={() => setShowModal(false)}
+                onConfirm={handleConfirm}
+                message={`Do you realy want to remove "${name}"?`}
+            />
         </div>
     );
 }
