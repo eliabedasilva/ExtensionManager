@@ -1,3 +1,20 @@
+:root {
+  --Neutral1: hsl(227, 75%, 14%);
+  --Neutral2: hsl(226, 25%, 17%);
+  --Neutral3: hsl(225, 23%, 24%);
+  --Neutral4: hsl(226, 11%, 37%);
+  --Neutral5: hsl(0, 0%, 78%);
+  --Neutral6: hsl(217, 61%, 90%);
+  --Neutral7: hsl(0, 0%, 93%);
+  --Neutral8: hsl(0, 0%, 100%);
+  --Red1: hsl(3, 86%, 64%);
+  --Red2: hsl(3, 71%, 56%);
+  --Red3: hsl(3, 77%, 44%);
+  --box_shadow: 0 0 0.3rem rgba(0, 0, 0, 0.2);
+}
+
+
+
 .backdrop {
     position: fixed;
     top: 0;
@@ -12,7 +29,7 @@
   }
   
   .modal {
-    background: white;
+    background: var(--Neutral8);
     padding: 2rem;
     border-radius: 8px;
     width: 300px;
@@ -27,15 +44,15 @@
   }
   
   .cancel {
-    background: #ccc;
+    background: var(--Neutral5);
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
   }
   
   .confirm {
-    background: #d33;
-    color: white;
+    background: var(--Red3);
+    color: var(--Neutral8);
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;

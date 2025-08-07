@@ -26,28 +26,51 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--Neutral8);
     border-radius: 0.7rem;
-    margin-top: 2rem;
     box-shadow: var(--box_shadow);
     padding-inline: 1rem ;
 }
+
+.search_container.light {
+    background-color: var(--Neutral8);
+}
+
+.search_container.dark {
+    background-color: var(--Neutral2);
+}
+
 .search_container > input {
     width: 100%;
     padding: 1rem 0.5rem;
     border: none;
-    color: var(--Neutral1);
-    background-color: var(--Neutral8);
     font-size: 1rem;
     font-weight: 500;
     outline: none;
 }
+.search_container.light > input{
+    color: var(--Neutral2);
+    background-color: var(--Neutral8);
+}
+
+.search_container.dark > input{
+    color: var(--Neutral8);
+    background-color: var(--Neutral2);
+}
+
+
 .search_btn{
     background-color: var(--Neutral7);
     border: none;
     cursor: pointer;
     padding: 0.3rem;
     border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search_btn.dark{
+    background-color: var(--Neutral3);
 }
 
 .filters_container {
@@ -60,6 +83,9 @@
     color: var(--Neutral1);
     font-size: 2rem;
     font-weight: bolder;
+}
+.filters_container > h1.dark {
+    color: var(--Neutral7);
 }
 
 .filters {
@@ -76,4 +102,8 @@
     font-weight: 500;
     cursor: pointer;
     box-shadow: var(--box_shadow); 
+}
+.filters > button.dark{
+    background-color: var(--Neutral2);
+    color: var(--Neutral8);
 }

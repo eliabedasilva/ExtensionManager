@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import styles from '../components/Header.module.css';
+import { useTheme } from './ThemeContext';
 
 export default function Header({ onFilterChange, onSearchInputChange }) {
   const [activeFilter, setActiveFilter] = useState('all');
+
+  const { theme, toggleTheme } = useTheme()
 
   const handleFilterClick = (filter) => {
     setActiveFilter(filter);
@@ -19,8 +22,11 @@ export default function Header({ onFilterChange, onSearchInputChange }) {
 
   return (
     <header>
-      <div className={`${styles.search_container}`}>
-        <img src='assets/images/logo-light.svg' alt="logo" />
+      <div className={`${styles.search_container} ${styles[theme]}`}>
+        {theme === 'light'? 
+          <img src='assets/images/logo-light.svg' alt="logo" />:
+          <img src="assets/images/logo-dark.svg" alt="logo" />
+        }
         <input 
           type="text" 
           name="search" 
@@ -28,28 +34,28 @@ export default function Header({ onFilterChange, onSearchInputChange }) {
           placeholser="Extensions"
           onChange={handleSearchInput}
         />
-        <button className={`${styles.search_btn}`}>
-          <img src='assets/images/icon-moon.svg' alt="icon_moon"/>
+        <button onClick={toggleTheme} className={`${styles.search_btn} ${styles[theme]}`}>
+          <img src={theme === 'light'? 'assets/images/icon-moon.svg': 'assets/images/icon-sun.svg'} alt="icon_moon"/>
         </button>
       </div>
       
-      <div className={`${styles.filters_container}`}>
-        <h1>Extension List</h1>
+      <div className={`${styles.filters_container} ${styles[theme]}`}>
+        <h1 className={`${styles[theme]}`}>Extension List</h1>
         <div className={`${styles.filters}`}>
           <button 
-            className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
+            className={`${activeFilter === 'all' ? 'active' : ''} ${styles[theme]}`}
             onClick={() => handleFilterClick('all')}
           >
             All
           </button>
           <button 
-            className={`filter-btn ${activeFilter === 'active' ? 'active' : ''}`}
+            className={`${activeFilter === 'active' ? 'active' : ''} ${styles[theme]}`}
             onClick={() => handleFilterClick('active')}
           >
             Active
           </button>
           <button 
-            className={`filter-btn ${activeFilter === 'inactive' ? 'active' : ''}`}
+            className={`${activeFilter === 'inactive' ? 'active' : ''} ${styles[theme]}`}
             onClick={() => handleFilterClick('inactive')}
           >
             Inactive

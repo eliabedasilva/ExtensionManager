@@ -2,12 +2,15 @@ import './App.css'
 import { useState, useEffect } from "react";
 import Header from './components/Header.jsx'
 import CardList from './components/CardList.jsx'
+import { useTheme } from './components/ThemeContext.jsx';
 
 function App() {
   const [extensions, setExtensions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [filteredExtensions, setFilteredExtensions] = useState([]);
+
+  const { theme } = useTheme()
 
   useEffect(() => {
     const fetchExtensions = async () => {
@@ -58,18 +61,20 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <Header
-        onFilterChange={onFilterChange}
-        onSearchInputChange={onSearchInputChange}
-      />
-      <CardList
-        extensions={filteredExtensions}
-        loading={loading}
-        error={error}
-        onRemove={handleRemove}
-        onToggleActive={handleToggleActive}
-      />
+    <div className={`appcontainer ${theme}`}>
+      <div className="app">
+        <Header
+          onFilterChange={onFilterChange}
+          onSearchInputChange={onSearchInputChange}
+        />
+        <CardList
+          extensions={filteredExtensions}
+          loading={loading}
+          error={error}
+          onRemove={handleRemove}
+          onToggleActive={handleToggleActive}
+        />
+      </div>
     </div>
   );
 }

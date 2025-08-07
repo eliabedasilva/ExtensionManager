@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import styles from '../components/ExtensionCard.module.css';
 import ConfirmModal from './ConfirmModal';
+import { useTheme } from './ThemeContext';
 
 export default function ExtensionCard({ id, logo_path, name, description, isActive, onRemove, onToggleActive }) {
   const [isChecked, setIsChecked] = useState(isActive);
   const [showModal, setShowModal] = useState(false);
+  const { theme, toggleTheme } = useTheme()
+
 
   const handleRemoveClick = () => setShowModal(true);
   const handleConfirm = async () => {
@@ -38,13 +41,13 @@ export default function ExtensionCard({ id, logo_path, name, description, isActi
   };
 
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} ${styles[theme]}`}>
       <img src={logo_path} alt={name} />
       <div className={styles.text_container}>
-        <h1>{name}</h1>
-        <p>{description}</p>
+        <h1 className={`${styles[theme]}`}>{name}</h1>
+        <p className={`${styles[theme]}`}>{description}</p>
       </div>
-      <div className={styles.button_container}>
+      <div className={`${styles.button_container} ${styles[theme]}`}>
         <button onClick={handleRemoveClick}>Remove</button>
         <label className={styles.toggleSwitch}>
           <input
@@ -52,7 +55,7 @@ export default function ExtensionCard({ id, logo_path, name, description, isActi
             checked={isChecked}
             onChange={handleCheckboxChange}
           />
-          <span className={styles.slider}></span>
+          <span className={`${styles.slider} ${styles[theme]}`}></span>
         </label>
       </div>
 

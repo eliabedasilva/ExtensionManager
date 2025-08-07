@@ -12,7 +12,7 @@
       "logo": "./assets/images/logo-style-spy.svg",
       "name": "StyleSpy",
       "description": "Instantly analyze and copy CSS from any webpage element.",
-      "isActive": false
+      "isActive": true
     },
     {
       "id": "3",
@@ -47,21 +47,21 @@
       "logo": "./assets/images/logo-markup-notes.svg",
       "name": "Markup Notes",
       "description": "Enables annotation and notes directly onto webpages for collaborative debugging.",
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "8",
       "logo": "./assets/images/logo-grid-guides.svg",
       "name": "GridGuides",
       "description": "Overlay customizable grids and alignment guides on any webpage.",
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "9",
       "logo": "./assets/images/logo-palette-picker.svg",
       "name": "Palette Picker",
       "description": "Instantly extracts color palettes from any webpage.",
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "10",
@@ -82,7 +82,7 @@
       "logo": "./assets/images/logo-console-plus.svg",
       "name": "ConsolePlus",
       "description": "Enhanced developer console with advanced filtering and logging.",
-      "isActive": true
+      "isActive": false
     }
   ]
 }

@@ -10,12 +10,18 @@
     --width: 70%;
 }
 
-body{
+.appcontainer{
     background-image: var(--LightGradient);
-    height: 100vh;
+    height: 100%;
+    padding-block: 2rem;
+}
+
+.appcontainer.dark{
+    background-image: var(--DarkGradient);
 }
 
 .app{
     margin: auto;
+    padding-bottom: 2rem;
     width: var(--width);
 }
